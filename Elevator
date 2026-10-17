@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8"><title>Montgomery Operating Panel</title> 
+<style> 
+body{background:#0e1013;color:#fff;display:flex;gap:40px;justify-content:center;align-items:center;height:100vh;margin:0;user-select:none;font-family:sans-serif} 
+.shaft{background:#13161c;width:130px;height:245px;position:relative;border:4px solid #2e343f;border-radius:4px} 
+.shaft::before{content:"";position:absolute;width:100%;top:50%;border-top:2px solid #222630;}
+.car{width:114px;height:45px;position:absolute;bottom:10px;left:4px;transition:bottom 3.5s cubic-bezier(.4,0,.2,1);display:flex;justify-content:space-between;background:#abb2bd;border:2px solid #475161;box-sizing:border-box;z-index:2;} 
+.door{width:0%;height:100%;background:#717b8a;transition:width .6s} 
+.cop{display:flex;justify-content:center;background:linear-gradient(90deg,#a1a8b3,#e2e8f0 50%,#a1a8b3);padding:30px 20px;box-shadow:0 35px 70px #000;width:300px;height:520px;box-sizing:border-box;border-radius:4px;border:3px solid #717b8a} 
+.panel-header{background:#11141a;border:2px solid #475161;width:100%;height:55px;display:flex;align-items:center;justify-content:center;border-radius:2px;margin-bottom:15px} 
+.montgomery-logo{color:#fff;font-family:'Arial Black',sans-serif;font-size:18px;letter-spacing:2px;text-transform:uppercase;font-weight:900;text-align:center;}
+.grid{display:grid;grid-template-columns:1fr;gap:10px;width:100%;justify-items:center;align-items:center;padding:10px 0} 
+.btn-assembly{display:flex;align-items:center;gap:12px;width:115px;justify-content:flex-start} 
+.braille-tag{width:36px;height:36px;background:#161920;border:1px solid #3f4756;border-radius:4px;display:flex;flex-direction:column;align-items:center;justify-content:center;box-shadow:0 2px 4px rgba(0,0,0,0.5);box-sizing:border-box}
+.lbl{font-weight:900;font-size:15px;color:#fff;font-family:monospace;line-height:1} 
+.lbl span{font-size:5px;color:#555;margin-top:2px;display:block;text-align:center}
+.lbl.star{color:#f59e0b} 
+.ob{width:36px;height:36px;border-radius:50%;border:2px solid #475569;background:linear-gradient(135deg,#fff,#cbd5e1 40%,#94a3b8);cursor:pointer;outline:none;transition:all 0.2s;box-shadow:0 2px 3px rgba(0,0,0,0.4)} 
+.plate{background:linear-gradient(#bbb,#999);color:#111;font-weight:bold;font-size:9px;padding:6px;border:1px solid #555;width:95%;box-shadow:0 2px 4px rgba(0,0,0,0.4);text-align:center;margin-top:15px;box-sizing:border-box;letter-spacing:1px} 
+</style>
+</head> 
+<body> 
+<div class="shaft"><div id="e" class="car"><div id="dl" class="door"></div><div id="dr" class="door"></div></div></div> 
+<div class="cop"><div style="width:100%;display:flex;flex-direction:column;align-items:center;justify-content:space-between"> 
+  <div class="panel-header"><div id="logo-disp" class="montgomery-logo">1</div></div> 
+  <div class="grid"> 
+    <div class="btn-assembly"><div class="braille-tag"><span class="lbl">2<span>⠼⠃</span></span></div><button class="ob" onclick="M('2','180px',this)"></button></div> 
+    <div class="btn-assembly"><div class="braille-tag"><span class="lbl star">★1<span>⠼⠁</span></span></div><button class="ob" style="border-color:#f59e0b;box-shadow:0 0 8px #f59e0b" onclick="M('1','10px',this)"></button></div>
+    <div style="display:flex; gap:12px; width:100%; justify-content:center; margin-top:5px;">
+      <div class="btn-assembly" style="width:auto;"><div class="braille-tag"><span class="lbl" style="font-size:10px">◀||▶</span></div><button class="ob" onclick="O(1)"></button></div>
+      <div class="btn-assembly" style="width:auto;"><div class="braille-tag"><span class="lbl" style="font-size:10px">▶||◀</span></div><button class="ob" onclick="O(0)"></button></div> 
+    </div>
+    <div style="display:flex; gap:12px; width:100%; justify-content:center;">
+      <div class="btn-assembly" style="width:auto;"><div class="braille-tag" style="border-color:#ef4444"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#ef4444" stroke-width="2.5"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9J"/><path d="M13.7 21a2 2 0 0 1-3.4 0"/></svg></div><button class="ob" style="border-color:#ef4444" onmousedown="a('init');a('bz_on')" onmouseup="a('bz_off')" onmouseleave="a('bz_off')"></button></div> 
+      <div class="btn-assembly" style="width:auto;"><div class="braille-tag" style="border-color:#475569"><svg width="14" height="14" viewBox="0 0 24 24" fill="#fff"><path d="M6.6 10.8a15.2 15.2 0 0 0 6.6 6.6l2.2-2.2a1 1 0 0 1 1.1-.3c1.1.4 2.3.6 3.6.6a1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A18 18 0 0 1 3 4a1 1 0 0 1 1-1h3.5a1 1 0 0 1 1 1c0 1.2.2 2.4.6 3.6a1 1 0 0 1-.3 1.1l-2.2 2.2z"/></svg></div><button class="ob" onclick="P(this)"></button></div> 
+    </div>
+  </div> 
+  <div class="plate">Last Updated 10/2/26</div> 
+</div></div> 
+<script> 
+let cf='1',mv=false,ctx=null,mt=null,mg=null,bz1=null,bzlfo=null,bzg=null,ph1=null,ph2=null,phg=null,pt=null,pi=null; 
+function a(t,offset=0){if(!ctx&&t!='init')return;if(!ctx||ctx.state==='suspended')ctx=new(window.AudioContext||window.webkitAudioContext)();if(t=='init')return;let g=ctx.createGain();g.connect(ctx.destination);if(t=='bp'){let o=ctx.createOscillator(),g=ctx.createGain();o.connect(g);g.connect(ctx.destination);o.frequency.setValueAtTime(800,ctx.currentTime);g.gain.setValueAtTime(0.04,ctx.currentTime);g.gain.exponentialRampToValueAtTime(0.001,ctx.currentTime+0.08);o.start();o.stop(ctx.currentTime+0.08)}if(t=='ch'){let o=ctx.createOscillator(),g=ctx.createGain();o.connect(g);g.connect(ctx.destination);o.frequency.setValueAtTime(523.25,ctx.currentTime);g.gain.setValueAtTime(0.08,ctx.currentTime);g.gain.exponentialRampToValueAtTime(0.001,ctx.currentTime+1.5);o.start();o.stop(ctx.currentTime+1.5)}if(t=='mt'){mt=ctx.createOscillator();mg=ctx.createGain();mt.connect(mg);mg.connect(ctx.destination);mt.type='triangle';mt.frequency.setValueAtTime(55,ctx.currentTime);mg.gain.setValueAtTime(0.18,ctx.currentTime);mt.start()}if(t=='stop'){if(mt){mg.gain.linearRampToValueAtTime(0,ctx.currentTime+0.4);let o=mt;setTimeout(()=>{try{o.stop()}catch(e){}},450);mt=mg=null}}
+if(t=='bz_on'){if(bz1)return;document.getElementById('logo-disp').style.color='#ef4444';document.getElementById('logo-disp').innerText="ALARM ACTIVATED";bzg=ctx.createGain();bzg.connect(ctx.destination);bzg.gain.setValueAtTime(0.15,ctx.currentTime);bz1=ctx.createOscillator();bzlfo=ctx.createOscillator();let lfoGain=ctx.createGain();bz1.type='sine';bz1.frequency.setValueAtTime(2100,ctx.currentTime);bzlfo.type='sine';bzlfo.frequency.setValueAtTime(10,ctx.currentTime);lfoGain.gain.setValueAtTime(700,ctx.currentTime);bzlfo.connect(lfoGain);lfoGain.connect(bz1.frequency);bz1.connect(bzg);bz1.start();bzlfo.start()}if(t=='bz_off'){if(bz1){try{bz1.stop();bzlfo.stop()}catch(e){}bz1=bzlfo=bzg=null;document.getElementById('logo-disp').style.color='#fff';document.getElementById('logo-disp').innerText=window.ph?(window.busyState?"LINE BUSY":""):(mv?(cf==='1'?"↑ 1":"↓ 2"):cf)}}
+if(t=='ph_ring'){a('ph_off');phg=ctx.createGain();phg.connect(ctx.destination);phg.gain.setValueAtTime(0.05,ctx.currentTime);ph1=ctx.createOscillator();ph2=ctx.createOscillator();ph1.frequency.setValueAtTime(440,ctx.currentTime);ph2.frequency.setValueAtTime(480,ctx.currentTime);ph1.connect(phg);ph2.connect(phg);ph1.start();ph2.start()}if(t=='ph_busy'){a('ph_off');phg=ctx.createGain();phg.connect(ctx.destination);phg.gain.setValueAtTime(0.06,ctx.currentTime+offset);ph1=ctx.createOscillator();ph2=ctx.createOscillator();ph1.frequency.setValueAtTime(480,ctx.currentTime+offset);ph2.frequency.setValueAtTime(620,ctx.currentTime+offset);phg.gain.linearRampToValueAtTime(0,ctx.currentTime+offset+0.5);ph1.connect(phg);ph2.connect(phg);ph1.start(ctx.currentTime+offset);ph2.start(ctx.currentTime+offset);ph1.stop(ctx.currentTime+offset+0.5);ph2.stop(ctx.currentTime+offset+0.5)}if(t=='ph_off'){if(ph1){try{ph1.stop();ph2.stop()}catch(e){}ph1=ph2=phg=null}}}
+function O(o){a('init');a('bp');if(!mv)dl.style.width=dr.style.width=o?'0%':'50%'} 
+function mBustLoop(){if(!window.ph)return;a('ph_busy');window.busyState=1;if(document.getElementById('logo-disp').innerText!=="ALARM ACTIVATED")document.getElementById('logo-disp').innerText="LINE BUSY";setTimeout(()=>{if(window.ph){window.busyState=0;if(document.getElementById('logo-disp').innerText!=="ALARM ACTIVATED")document.getElementById('logo-disp').innerText="";}},500);pi=setTimeout(mBustLoop,1000);}
+function P(b){a('init');if(window.ph){window.ph=0;clearTimeout(pt);clearTimeout(pi);a('ph_off');document.getElementById('logo-disp').innerText=cf;b.style.borderColor="#475569";b.style.boxShadow="none";return}window.ph=1;a('bp');b.style.borderColor="#f59e0b";b.style.boxShadow="0 0 8px #f59e0b";document.getElementById('logo-disp').innerText="CALLING 911...";a('ph_ring');pt=setTimeout(()=>{if(window.ph){mBustLoop();}},3000)}
+function M(f,p,b){a('init');let cl=f.replace('★','');if(mv||cl===cf)return;mv=true;a('bp');document.querySelectorAll(".ob").forEach(x=>{x.style.borderColor="#475569";x.style.boxShadow="none"});b.style.borderColor="#f59e0b";b.style.boxShadow="0 0 8px #f59e0b";dl.style.width=dr.style.width="50%";document.getElementById('logo-disp').innerText=cl==='2'?"↑ 1":"↓ 2";setTimeout(()=>{a('mt');e.style.bottom=p;setTimeout(()=>{a('stop');cf=cl;document.getElementById('logo-disp').innerText=cf;a('ch');setTimeout(()=>{dl.style.width=dr.style.width="0%";mv=false},600)},3500)},600)}
+</script>
+</body>
+</html>
